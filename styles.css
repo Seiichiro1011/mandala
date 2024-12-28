@@ -1,0 +1,31 @@
+/* ==== 9×9のグリッド全体 ==== */
+#grid {
+    width: 900px;             /* 画像を表示する領域の幅 */
+    height: 600px;            /* 同じ高さなら正方形 */
+    margin: 50px auto;        /* ページ中央寄せ */
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);  /* 横に9列 */
+    grid-template-rows: repeat(9, 1fr);     /* 縦に9行 */
+    background: #eee;                       /* 何も見えない時の背景色 */
+    position: relative;
+  }
+  
+  /* ==== 各マス共通のスタイル ==== */
+  .cell {
+    /* 同じ画像を使って、9×9の一部分を切り抜いて表示する */
+    background-image: url("mandala.png");
+    background-size: 900% 900%; /* 9倍拡大して行列分割 */
+    background-repeat: no-repeat;
+  
+    /* 最初は透明(非表示)にしておく */
+    opacity: 0;
+  
+    /* フェードインのアニメーション (0.8秒でopacity 0→1) */
+    animation: fadeIn 1s forwards ease;
+  }
+  
+  @keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
